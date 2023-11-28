@@ -132,7 +132,7 @@ class TestEFaturaGonderme(unittest.TestCase, Variable):
 
     def test_00_einvoice_document_load(self):
         """-->> Belge sisteme yüklenirken numarasının atanmış şekilde yüklenmesi testi
-                    assignNumber: False -> yüklenecek belgeye numara ataması gerekmiyor"""
+                SassignNumber: False -> yüklenecek belgeye numara ataması gerekmiyor"""
 
         zip_base64 = self.tools.set_loading_content(self.E_INVOICE)
         prefix = self.tools.random_choise_prefix(self.E_INVOICE)
