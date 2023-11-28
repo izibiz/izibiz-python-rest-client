@@ -15,7 +15,7 @@ class AuthAdapter(unittest.TestCase):
 
         headers = {'Content-Type': 'application/json'}
         username = "izibiz-test2"
-        password= "izi321"
+        password = "izi321"
         login_request = {"username": username, "password": password}
         body_json = json.dumps(login_request)
 
@@ -24,8 +24,8 @@ class AuthAdapter(unittest.TestCase):
 
         self.assertIsNotNone(response_data)
         self.assertIsNotNone(response_data.get('accessToken', None))
-
-        print("\n Erisim tokeni : ")
+        print("\nBasarili Login Olma Testi : ")
+        print("Erisim Anahtari : ")
         print(response.json()['data']['accessToken'])
 
         access_token = response.json()['data']['accessToken']
@@ -42,9 +42,11 @@ class AuthAdapter(unittest.TestCase):
         response = requests.post(self.URL, headers=headers, data=body_json)
         self.assertIsNone(response.json()['data'])
         self.assertIsNotNone(response.json()['error'])
-        print(f"\nHata Kodu :  {response.json()['error']['code']}")
+        print("\nBasarisiz Login Olma Testi : ")
+        print(f"Hata Kodu :  {response.json()['error']['code']}")
         print(f"Hata Mesaji :  {response.json()['error']['message']}")
 
 
-
+if __name__ == '__main__':
+    unittest.main()
 
