@@ -18,7 +18,7 @@ Bu proje **İzibiz Bilişim Teknolojileri** şirketinin Özel Entegrasyon hizmet
  - **username** = "kullanici adi giriniz"
  - **password** = "sifre giriniz"
 
-Her python dosyasında import edilen kütüphaneler belirtilmiştir. Bu kütüphanler kodun başarılı bir şekilde çalışması gereklidir. Kurulum esnasında kodu çalıştırmadan önce bu kütüphanelerin import edilmesi gerekmektedir. İmport işlemi ide yardımıyla gerekli kütüphanenin üzerine tıklanarak otomotik olarak yada farklı yöntemler kullanarak yapılabilir.
+Her python dosyasında import edilen kütüphaneler belirtilmiştir. Bu kütüphanler kodun başarılı bir şekilde çalışması gereklidir. Kurulum esnasında kodu çalıştırmadan önce bu kütüphanelerin import edilmesi gerekmektedir. İmport işlemi ide yardımıyla gerekli kütüphanenin üzerine tıklanarak otomotik olarak yada farklı yöntemler kullanarak yapılabilir. Ayrıca Python interpreter(yorumlayıcı)'in de eklenmiş olduğuna dikkat edilmelidir.
 
 Alanlarına ilgili kullanıcı adı ve şifre değeri girilir. Daha sonra Test_1_AuthSample.py dosyası run edilir. Projede ilk koşulması gereken dosya Test_1_AuthSample.py dosyasıdır. Token alma işlemi bu sınıfta gerçekleştirilir.  Bu aşamada ayrıca proje boyunca kullanılacak olan dosya dizinleri de oluşturulur.
 
