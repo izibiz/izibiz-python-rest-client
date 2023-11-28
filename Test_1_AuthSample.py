@@ -14,8 +14,8 @@ class AuthAdapter(unittest.TestCase):
         """basarili login olma testi"""
 
         headers = {'Content-Type': 'application/json'}
-        username = "izibiz-test2"
-        password = "izi321"
+        username = "kullanici adi giriniz"
+        password = "sifre giriniz"
         login_request = {"username": username, "password": password}
         body_json = json.dumps(login_request)
 
