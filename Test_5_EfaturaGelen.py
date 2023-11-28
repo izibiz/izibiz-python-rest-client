@@ -1,17 +1,12 @@
-import base64
-import uuid
-import zipfile
-import random
 import json
 import requests
 import unittest
-
 from Create_Access_Token import CreateAccessToken
 from Variables import Variable
 from Utilities import Tools
 
-class TestEFaturaGelen(unittest.TestCase, Variable):
 
+class TestEFaturaGelen(unittest.TestCase, Variable):
     tools = Tools()
     params = {'status': 'Delivered'}
     create_access_token = CreateAccessToken()
@@ -94,7 +89,7 @@ class TestEFaturaGelen(unittest.TestCase, Variable):
         """-->> gelen e fatura durum sorgulama testi."""
 
         id = 84
-        response = requests.get(url=self.BASE_URL_INVOICE_INBOX+f"/{id}", headers=self.HEADERS)
+        response = requests.get(url=self.BASE_URL_INVOICE_INBOX + f"/{id}", headers=self.HEADERS)
         self.assertIsNotNone(response.json()['data'])
         self.assertIsNone(response.json()['error'])
         content = response.json()['data']
@@ -106,7 +101,7 @@ class TestEFaturaGelen(unittest.TestCase, Variable):
         print("Sorgusu yapilan belgenin durumu : \n")
         print(f"id:{id}, key:{uuid}, documentNo:{documentNo}, documentStatus: {documentStatus}\n")
 
-    @unittest.skip
+    @unittest.skip  # API aktif degil o yuzden skip edildi
     def test_07_einvoice_making_erp_read(self):
         """-->> gelen e fatura erp okundu yapma testi."""
         """bu kısım test ortamında çalışmıyor dev de testleri yapıldı"""
@@ -114,7 +109,7 @@ class TestEFaturaGelen(unittest.TestCase, Variable):
         row = self.tools.random_choise_row()
         body = [{"id": row['id'], "documentUuid": row['documentUuid'], "documentNo": row['documentNo']}]
         body_json = json.dumps(body)
-        response = requests.post(url=self.BASE_URL_INVOICE_INBOX + self.ERP_READ, headers=self.HEADERS, data= body_json)
+        response = requests.post(url=self.BASE_URL_INVOICE_INBOX + self.ERP_READ, headers=self.HEADERS, data=body_json)
         contents = response.json()['data']
 
         self.assertIsNotNone(response.json()['data'])
@@ -127,9 +122,10 @@ class TestEFaturaGelen(unittest.TestCase, Variable):
             documentNo = content["documentNo"]
             documentUuid = content['documentUuid']
 
-            print(f"id:{id}, readStatus:{readStatus}, status:{status}, documentNo: {documentNo},documentUuid: {documentUuid}\n")
+            print(
+                f"id:{id}, readStatus:{readStatus}, status:{status}, documentNo: {documentNo},documentUuid: {documentUuid}\n")
 
-    @unittest.skip
+    @unittest.skip  # API aktif degil o yuzden skip edildi
     def test_08_einvoice_making_erp_unread(self):
         """-->> gelen e fatura erp okunmadıs yapma testi."""
         """bu kısım test ortamında çalışmıyor dev de testleri yapıldı"""
@@ -151,7 +147,8 @@ class TestEFaturaGelen(unittest.TestCase, Variable):
             documentNo = content["documentNo"]
             documentUuid = content['documentUuid']
 
-            print(f"id:{id}, readStatus:{readStatus}, status:{status}, documentNo: {documentNo},documentUuid: {documentUuid}\n")
+            print(
+                f"id:{id}, readStatus:{readStatus}, status:{status}, documentNo: {documentNo},documentUuid: {documentUuid}\n")
 
     def test_09_einvoice_incoming_statuses(self):
         """-->> gelen e fatura durumları testi."""
@@ -175,7 +172,8 @@ class TestEFaturaGelen(unittest.TestCase, Variable):
             login_request = [{'id': id}]
             body_json = json.dumps(login_request)
 
-            response = requests.post(url=self.BASE_URL_INVOICE_INBOX + self.DOWNLOAD_UBL, headers=self.headers, data=body_json)
+            response = requests.post(url=self.BASE_URL_INVOICE_INBOX + self.DOWNLOAD_UBL, headers=self.headers,
+                                     data=body_json)
 
             self.assertIsNotNone(response.json()['data'])
             self.assertIsNone(response.json()['error'])
@@ -189,7 +187,8 @@ class TestEFaturaGelen(unittest.TestCase, Variable):
             login_request = [{'id': id}]
             body_json = json.dumps(login_request)
 
-            response = requests.post(url=self.BASE_URL_INVOICE_INBOX + self.DOWNLOAD_HTML, headers=self.headers, data=body_json)
+            response = requests.post(url=self.BASE_URL_INVOICE_INBOX + self.DOWNLOAD_HTML, headers=self.headers,
+                                     data=body_json)
             response_data = response.json()['data']
 
             self.assertIsNotNone(response_data)
@@ -205,7 +204,8 @@ class TestEFaturaGelen(unittest.TestCase, Variable):
             login_request = [{'id': id}]
             body_json = json.dumps(login_request)
 
-            response = requests.post(url=self.BASE_URL_INVOICE_INBOX + self.DOWNLOAD_PDF, headers=self.headers, data=body_json)
+            response = requests.post(url=self.BASE_URL_INVOICE_INBOX + self.DOWNLOAD_PDF, headers=self.headers,
+                                     data=body_json)
             response_data = response.json()['data']
 
             self.assertIsNotNone(response_data)

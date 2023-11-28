@@ -29,7 +29,6 @@ class Tools:
                 parts = row.split(', ')  # Virgül ve boşluğa göre satırı böler
 
                 id_value = None
-
                 for part in parts:
                     if part.startswith('id:'):
                         id_value = part.split(':')[1]  # "id" değerini çıkarırız
@@ -79,8 +78,8 @@ class Tools:
         random_digit = str(random_digit).zfill(5)
 
         if type == Variable.E_MUSTAHSIL:
-            # xml_file_path = "Required_Files/E_Mustahsil/template.xml"
-            xml_file_path = "Files/GENERATED_XML/creditNote_xml.xml"  # elle üretilen xml belgesinin yolu
+            xml_file_path = "Required_Files/E_Mustahsil/template.xml"
+            # xml_file_path = "Files/GENERATED_XML/creditNote_xml.xml"  # elle üretilen xml belgesinin yolu
             self.replace_xml(xml_file_path, element_1, random_value)
             self.replace_xml(xml_file_path, element_2, f"MUH{datetime.now().today().year}0000{random_digit}")
 
@@ -88,7 +87,6 @@ class Tools:
                 zip_file.write(xml_file_path, arcname=xml_file_path)
 
         if type == Variable.E_SMM:
-
             xml_file_path = 'Required_Files/E_Smm/template.xml'
             self.replace_xml(xml_file_path, element_1, random_value)
             self.replace_xml(xml_file_path, element_2, f"MUH{datetime.now().today().year}0000{random_digit}")
@@ -97,9 +95,8 @@ class Tools:
                 zip_file.write(xml_file_path, arcname=xml_file_path)
 
         if type == Variable.E_INVOICE:
-
-            #xml_file_path = "Required_Files/E_Fatura/template.xml"
-            xml_file_path = "Files/GENERATED_XML/invoice_xml.xml" # elle üretilen xml belgesinin yolu
+            xml_file_path = "Required_Files/E_Fatura/template.xml"
+            # xml_file_path = "Files/GENERATED_XML/invoice_xml.xml" # elle üretilen xml belgesinin yolu
 
             self.replace_xml(xml_file_path, element_1, random_value)
             self.replace_xml(xml_file_path, element_2, f"MUH{datetime.now().today().year}0000{random_digit}")
@@ -118,7 +115,7 @@ class Tools:
 
         path_1 = "Files/E_Fatura/Gelen/efatura_yenigelen_liste.txt"
         path_2 = "Files/E_Fatura/Gelen/efatura_prefix_liste.txt"
-        prefix_list =['XXX']
+        prefix_list = ['XXX']
         # baslangıcta liste bos olacagı icin null hatası almamak adına XXX degeri verildi
 
         with open(file=path_1, mode='r') as file_1:
@@ -131,19 +128,16 @@ class Tools:
                     for part in parts:
                         if part.startswith('documentNo:'):
                             data = part.split(':')[1]  # "id" değerini çıkarırız
-                            prefix =data[:3]
-
+                            prefix = data[:3]
 
                             if prefix is not None:
                                 if prefix not in prefix_list:
                                     prefix_list.append(prefix)
                                     file_2.write(f"{prefix}\n")
 
-
         return
 
-
-    def random_choise_prefix(self,type):
+    def random_choise_prefix(self, type):
 
         path = ""
 
@@ -160,7 +154,6 @@ class Tools:
         else:
             print(">>  gecerli bir dosya adresi girin <<\n")
 
-
         with open(path, 'r', encoding='utf-8') as file:
             rows = file.readlines()
 
@@ -168,8 +161,8 @@ class Tools:
         random_row = random.choice(pure_rows)
 
         return random_row
-    def write_content_to_file(self, contents,app_type):
 
+    def write_content_to_file(self, contents, app_type):
 
         path = f"Files/{app_type}/{app_type}_liste"
 
@@ -180,7 +173,8 @@ class Tools:
             uuid = content["uuid"]
             documentStatus = content["documentStatus"]["value"]
 
-            file.write(f"id:{id}, key:{uuid}, documentNo:{documentNo}, documentStatus: {documentStatus}\n")
+            if documentStatus != "UnReported":
+                file.write(f"id:{id}, key:{uuid}, documentNo:{documentNo}, documentStatus: {documentStatus}\n")
 
         file.close()
 
@@ -219,7 +213,7 @@ class Tools:
         path = "Files/E_Fatura/Gelen/efatura_yenigelen_liste.txt"
 
         with open(path, 'r') as dosya:
-           rows = dosya.readlines()
+            rows = dosya.readlines()
 
         random_row = random.choice(rows)
 
@@ -244,5 +238,3 @@ class Tools:
         now = datetime.now()
         current_datetime = now.strftime("%Y-%m-%d")
         return current_datetime
-
-

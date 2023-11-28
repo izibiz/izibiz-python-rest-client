@@ -1,13 +1,12 @@
 import json
 import requests
 import unittest
-
 from Create_Access_Token import CreateAccessToken
 from Variables import Variable
 from Utilities import Tools
 
-class TestEFaturaGiden(unittest.TestCase, Variable):
 
+class TestEFaturaGiden(unittest.TestCase, Variable):
     tools = Tools()
     create_access_token = CreateAccessToken()
     access_token = create_access_token.getAccessToken()
@@ -86,7 +85,8 @@ class TestEFaturaGiden(unittest.TestCase, Variable):
             login_request = [{'id': id}]
             body_json = json.dumps(login_request)
 
-            response = requests.post(url=self.BASE_URL_INVOICE_OUTBOX + self.DOWNLOAD_UBL, headers=self.headers, data=body_json)
+            response = requests.post(url=self.BASE_URL_INVOICE_OUTBOX + self.DOWNLOAD_UBL, headers=self.headers,
+                                     data=body_json)
             self.assertIsNotNone(response.json()['data'])
             self.assertIsNone(response.json()['error'])
 
@@ -100,7 +100,8 @@ class TestEFaturaGiden(unittest.TestCase, Variable):
             login_request = [{'id': id}]
             body_json = json.dumps(login_request)
 
-            response = requests.post(url=self.BASE_URL_INVOICE_OUTBOX + self.DOWNLOAD_HTML, headers=self.headers, data=body_json)
+            response = requests.post(url=self.BASE_URL_INVOICE_OUTBOX + self.DOWNLOAD_HTML, headers=self.headers,
+                                     data=body_json)
             response_data = response.json()['data']
 
             self.assertIsNotNone(response_data)
@@ -116,7 +117,8 @@ class TestEFaturaGiden(unittest.TestCase, Variable):
             login_request = [{'id': id}]
             body_json = json.dumps(login_request)
 
-            response = requests.post(url=self.BASE_URL_INVOICE_OUTBOX + self.DOWNLOAD_PDF, headers=self.headers, data=body_json)
+            response = requests.post(url=self.BASE_URL_INVOICE_OUTBOX + self.DOWNLOAD_PDF, headers=self.headers,
+                                     data=body_json)
             response_data = response.json()['data']
 
             self.assertIsNotNone(response_data)
