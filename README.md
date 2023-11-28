@@ -34,7 +34,7 @@ xsdata  Required_Files/XSD/maindoc/UBL-Invoice-2.1.xsd --package paket_ismi
 ```
 - Burada ilk parametre kütüphane ismi, ikinci parametre xsd dosyasının yolu ve son parametre ise sınıfların kaydedileceği paket ismidir. burada paket isminden önce **--package** ön ekinin yazılması unutulmamalıdır.
 - Bu işlemden sonra xml sınıfları oluşturulacaktır.
-- daha sonra proje içinde olan **GenaraterInvoiceXml.py** dosyası gibi xml elementlerinin içeriği doldurulur ve ve elde edilen xml belgesi kaydedilir.
+- daha sonra proje içinde olan **GenaraterInvoiceXml.py** dosyası gibi xml elementlerinin içeriği doldurulur ve elde edilen xml belgesi kaydedilir.
 - xml oluştururken **EmbeddedDocumentBinaryObject** elementinin değerlerini kod karmaşıklığı olmaması açısından dosyadan okuyoruz. Bu nedenle **Required_File** dosyası içinde **XML_CONTENTS** dosyası mevcuttur. Bu dosya içerisine  fatura ve müstahsil xml belgesi üretirken kullanılacak **EmbeddedDocumentBinaryObject** elementinin içeriği konulmuştur. **EmbeddedDocumentBinaryObject** elementinin içeri bu dosyalardan okunur. Yada direkt olarak kod üzerinden manuel olarak da bu veri **EmbeddedDocumentBinaryObject** elementine atanabilir.
 
 Oluşturulan xml belgelerin **şematron** kontrolünden geçip geçmediğini görmek için bazı yollar izlenebilir.Örneğin e fatura xml belgesi için şu yol izlenebilir.
@@ -42,7 +42,7 @@ e-fatura belge gönderme kısmına gidilip
 ```
 zip_base64 = self.tools.set_loading_content(self.E_INVOICE)
 ```
-satırında bulunan **set_loading_content** metodunun tanımlamasına gidilip e invoice için belge yolu olarak verilen belge yolu yerine yorum satırı halinde bulunan ve oluşan xml belgelerinin yolunu gösteren bu yol kullanılabilir.Yada oluşan xml belge nereye kaydedildiyse orası yol olarak verilebilir.
+satırında bulunan **set_loading_content** metodunun tanımlamasına gidilip e invoice için belge yolu olarak verilen yol yerine yorum satırı halinde bulunan ve oluşan xml belgelerinin yolunu gösteren bu yol kullanılabilir.Yada oluşan xml belge nereye kaydedildiyse orası yol olarak verilebilir.
 
 Belge yükleme senaryolarında şablon belge kullanmak yerine artık kod tarafından üretilen xml belgelerin kullanılması isteniyorsa yukarıda belirtilen yöntem kullanılabilir.
 
