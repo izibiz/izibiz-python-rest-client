@@ -34,9 +34,60 @@ pip install xsdata
 ```
 - Kurulumdan sonra yine terminal üzerinden aşağıdaki komut yardımıyla xml sınıfları elde edilir.
 ```
-xsdata  Required_Files/XSD/maindoc/UBL-Invoice-2.1.xsd --package paket_ismi
+xsdata  Required_Files/XSD/maindoc/UBL-Invoice-2.1.xsd --package deneme
 ```
 - Burada ilk parametre kütüphane ismi, ikinci parametre xsd dosyasının yolu ve son parametre ise sınıfların kaydedileceği paket ismidir. burada paket isminden önce **--package** ön ekinin yazılması unutulmamalıdır.
+- Bu işlem sonucunda terminalde aşağıdakine benzer bir çıktı elde edilir.
+>(venv) PS C:\Users\Muhammet\IzibizTestEntegration> xsdata  Required_Files/XSD/maindoc/UBL-Invoice-2.1.xsd --package deneme
+>========= xsdata v23.8 / Python 3.11.5 / Platform win32 =========
+
+>Parsing schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/maindoc/UBL-Invoice-2.1.xsd
+>Parsing schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-CommonAggregateComponents-2.1.xsd
+>Parsing schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-CommonBasicComponents-2.1.xsd
+>Parsing schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-QualifiedDataTypes-2.1.xsd
+>Parsing schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-UnqualifiedDataTypes-2.1.xsd
+>Parsing schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/CCTS_CCT_SchemaModule-2.1.xsd
+>Compiling schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/CCTS_CCT_SchemaModule-2.1.xsd
+>Builder: 10 main and 0 inner classes
+>Compiling schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-UnqualifiedDataTypes-2.1.xsd
+>Builder: 20 main and 0 inner classes
+>Compiling schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-QualifiedDataTypes-2.1.xsd
+>Compiling schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-CommonBasicComponents-2.1.xsd
+>Builder: 1746 main and 0 inner classes
+>Compiling schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-CommonAggregateComponents-2.1.xsd
+>Builder: 897 main and 0 inner classes
+>Parsing schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-CommonExtensionComponents-2.1.xsd
+>Parsing schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-ExtensionContentDataType-2.1.xsd
+>Parsing schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-CommonSignatureComponents-2.1.xsd
+>Parsing schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-SignatureAggregateComponents-2.1.xsd
+>Parsing schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-SignatureBasicComponents-2.1.xsd
+>Compiling schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-SignatureBasicComponents-2.1.xsd
+>Builder: 2 main and 0 inner classes
+>Parsing schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-xmldsig-core-schema-2.1.xsd
+>Compiling schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-xmldsig-core-schema-2.1.xsd
+>Builder: 49 main and 0 inner classes
+>Parsing schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-XAdESv132-2.1.xsd
+>Compiling schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-XAdESv132-2.1.xsd
+>Builder: 90 main and 0 inner classes
+>Parsing schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-XAdESv141-2.1.xsd
+>Compiling schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-XAdESv141-2.1.xsd
+>Builder: 3 main and 0 inner classes
+>Compiling schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-SignatureAggregateComponents-2.1.xsd
+>Builder: 2 main and 0 inner classes
+>Compiling schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-CommonSignatureComponents-2.1.xsd
+>Builder: 2 main and 0 inner classes
+>Compiling schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-ExtensionContentDataType-2.1.xsd
+>Builder: 1 main and 0 inner classes
+>Compiling schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-CommonExtensionComponents-2.1.xsd
+>Builder: 19 main and 0 inner classes
+>Compiling schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/maindoc/UBL-Invoice-2.1.xsd
+>Builder: 2 main and 0 inner classes
+>Generating package: deneme.common.ubl_signature_aggregate_components_2_1
+>Generating package: deneme.common.ubl_common_signature_components_2_1
+>Generating package: deneme.common.ubl_extension_content_data_type_2_1
+>Generating package: deneme.common.ubl_common_extension_components_2_1
+>Generating package: deneme.maindoc.ubl_invoice_2_1
+
 - Bu işlemden sonra xml sınıfları oluşturulacaktır.
 - daha sonra proje içinde olan **GenaraterInvoiceXml.py** dosyası gibi xml elementlerinin içeriği doldurulur ve elde edilen xml belgesi kaydedilir.
 - xml oluştururken **EmbeddedDocumentBinaryObject** elementinin değerlerini kod karmaşıklığı olmaması açısından dosyadan okuyoruz. Bu nedenle **Required_File** dosyası içinde **XML_CONTENTS** dosyası mevcuttur. Bu dosya içerisine  fatura ve müstahsil xml belgesi üretirken kullanılacak **EmbeddedDocumentBinaryObject** elementinin içeriği konulmuştur. **EmbeddedDocumentBinaryObject** elementinin içeri bu dosyalardan okunur. Yada direkt olarak kod üzerinden manuel olarak da bu veri **EmbeddedDocumentBinaryObject** elementine atanabilir.
