@@ -17,7 +17,9 @@ Bu proje **İzibiz Bilişim Teknolojileri** şirketinin Özel Entegrasyon hizmet
 İlk olarak **https://github.com/izibiz/izibiz-python-rest-client** adresinden projeye ait tüm dosyalar indirilerek oluşturulan python projesine eklenir. Daha sonra **Test_1_AuthSample.py** dosyasının içindeki;
  - **username** = "kullanici adi giriniz"
  - **password** = "sifre giriniz"
-  
+
+Her python dosyasında import edilen kütüphaneler belirtilmiştir. Bu kütüphanler kodun başarılı bir şekilde çalışması gereklidir. Kurulum esnasında kodu çalıştırmadan önce bu kütüphanelerin import edilmesi gerekmektedir. İmport işlemi ide yardımıyla gerekli kütüphanenin üzerine tıklanarak otomotik olarak yada farklı yöntemler kullanarak yapılabilir.
+
 Alanlarına ilgili kullanıcı adı ve şifre değeri girilir. Daha sonra Test_1_AuthSample.py dosyası run edilir. Projede ilk koşulması gereken dosya Test_1_AuthSample.py dosyasıdır. Token alma işlemi bu sınıfta gerçekleştirilir.  Bu aşamada ayrıca proje boyunca kullanılacak olan dosya dizinleri de oluşturulur.
 
 İlgili uygulamaların çeşitli aşamalarında( örneğin belge yükleme senaryoları gibi) gerekli olacak şablon belgeler **Required_Files** dizini altında her uygulamaya ait dosya içerisinde **template.xml** ismiyle mevcuttur. İstenildiğinde bu şablon belgeler belirtilen dizin üzerinden değiştirilebilir.
