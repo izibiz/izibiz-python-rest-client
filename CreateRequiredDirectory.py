@@ -26,9 +26,7 @@ def create_directories():
     os.makedirs("Files/E_Smm/E_Smm_liste_html", exist_ok=True)
     os.makedirs("Files/E_Smm/E_Smm_liste_pdf", exist_ok=True)
     os.makedirs("Files/E_Smm/E_Smm_liste_ubl", exist_ok=True)
-
     os.makedirs("Files/GENERATED_XML", exist_ok=True)
-
 
     os.makedirs("Required_Files/E_Fatura", exist_ok=True)
     os.makedirs("Required_Files/E_Mustahsil", exist_ok=True)
