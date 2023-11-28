@@ -38,9 +38,9 @@ xsdata  Required_Files/XSD/maindoc/UBL-Invoice-2.1.xsd --package deneme
 ```
 - Burada ilk parametre kütüphane ismi, ikinci parametre xsd dosyasının yolu ve son parametre ise sınıfların kaydedileceği paket ismidir. burada paket isminden önce **--package** ön ekinin yazılması unutulmamalıdır.
 - Bu işlem sonucunda terminalde aşağıdakine benzer bir çıktı elde edilir.
+  
 >(venv) PS C:\Users\Muhammet\IzibizTestEntegration> xsdata  Required_Files/XSD/maindoc/UBL-Invoice-2.1.xsd --package deneme
 >========= xsdata v23.8 / Python 3.11.5 / Platform win32 =========
-
 >Parsing schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/maindoc/UBL-Invoice-2.1.xsd
 >Parsing schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-CommonAggregateComponents-2.1.xsd
 >Parsing schema file:///C:/Users/Muhammet/IzibizTestEntegration/Required_Files/XSD/common/UBL-CommonBasicComponents-2.1.xsd
